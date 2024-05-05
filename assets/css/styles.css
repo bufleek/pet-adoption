@@ -15,9 +15,6 @@ header {
     padding: 20px;
 }
 
-.banner {
-    /* Banner styling */
-}
 
 section {
     padding: 50px 0;
@@ -73,7 +70,7 @@ p.caption {
 
 .action-buttons a {
     padding: 16px 30px;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin-right: 10px;
     border: none;
     border-radius: 5px;
@@ -82,6 +79,24 @@ p.caption {
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+}
+
+.action-buttons a:nth-child(2) {
+    padding: 16px 30px;
+    font-size: 1.4rem;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #b91e99;
+    background-color: #ffffff20;
+    border: 2px solid #b91e99;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    text-align: center;
 }
 
 .action-buttons button:hover {
@@ -112,9 +127,18 @@ footer {
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1020px) {
+    .action-buttons{
+        display: flex;
+        flex-direction: column;
+    }
+    .action-buttons a {
+        margin-bottom: 10px;
+    }
     .welcome-content {
-        flex-direction: row;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .welcome-text {
@@ -124,7 +148,18 @@ footer {
     }
 
     .pet-image {
-        width: 45%;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        opacity: 0.5;
+    }
+
+    .pet-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 }
 
@@ -145,7 +180,7 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: inline-block;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .pet-card:hover {
@@ -283,3 +318,30 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #a71492;
 }
+
+.chip {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+    color: #333;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px; 
+    padding-right: 45px;
+  }
+
+  .chip::after {
+    width: 30px;
+    content: "X";
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .chip:hover::after {
+    color: red;
+  }

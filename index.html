@@ -8,12 +8,6 @@
     <script src="assets/js/script.js" defer></script>
   </head>
   <body>
-    <header>
-      <div class="banner">
-        <!-- Banner content here -->
-      </div>
-    </header>
-
     <section id="welcome" class="scroll-animation">
       <div class="welcome-content">
         <div class="welcome-text">
@@ -44,11 +38,13 @@
           <input type="text" id="search-input" placeholder="Search pets..." />
           <div id="pet-selections" class="hide" multiple style="position: absolute; width: 100%;"></div>
         </div>
-
         <h3>Estimated Monthly Cost:</h3>
         <p id="monthly-cost"></p>
         <h3>Estimated Yearly Cost:</h3>
         <p id="yearly-cost"></p>
+
+        <div id="selected-pets">
+        </div>
       </div>
     </section>
 
@@ -77,8 +73,7 @@
             </div>
             <button type="submit">Submit Inquiry</button>
         </form>
-    </section>
-    
+    </section>  
 
     <footer></footer>
   </body>

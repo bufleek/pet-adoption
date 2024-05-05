@@ -291,6 +291,19 @@ function calculateCost() {
   yearlyCostElement.textContent = `$${yearlyCost}`;
 
   filterSelections();
+
+  let selectedPetsDiv = document.getElementById("selected-pets");
+  selectedPetsDiv.innerHTML = "";
+  selectedPets.forEach((selectedPet) => {
+    const chip = document.createElement("div");
+    chip.classList.add("chip");
+    chip.textContent = selectedPet.name;
+    chip.addEventListener("click", () => {
+      selectedPets.splice(selectedPets.indexOf(selectedPet), 1);
+      calculateCost();
+    });
+    selectedPetsDiv.appendChild(chip);
+  });
 }
 
 document
@@ -302,22 +315,55 @@ document
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
     const message = document.getElementById("message").value;
+    const pet = document.getElementById("pet-select").value;
 
     const emailBody = `
         Name: ${name}
         Email: ${email}
         Phone: ${phone}
+        Pet: ${pet}
         Message: ${message}
     `;
 
     console.log("Email sent with the following content:");
     console.log(emailBody);
 
-    setTimeout(() => {
-      alert("Thank you for your inquiry! We will get back to you soon.");
-      document.getElementById("name").value = "";
-      document.getElementById("email").value = "";
-      document.getElementById("phone").value = "";
-      document.getElementById("message").value = "";
-    }, 1000);
+    const emailData = {
+      sender: {
+        name: "Inquiry Form",
+        email: email,
+      },
+      to: [
+        {
+          email: process.env.EMAIL_TO,
+          name: process.env.TO_NAME,
+        },
+      ],
+      subject: "Pet Adoption Inquiry",
+      htmlContent: `<html><body>${emailBody.replace(
+        /\n/g,
+        "<br>"
+      )}</body></html>`,
+    };
+
+    fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "api-key": process.env.BREVO_API_KEY,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(emailData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("Thank you for your inquiry! We will get back to you soon.");
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("message").value = "";
+      })
+      .catch((error) => {
+        console.warn("Failed to send email. \n" + error.toString());
+      });
   });
