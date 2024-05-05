@@ -345,3 +345,18 @@ button[type="submit"]:hover {
   .chip:hover::after {
     color: red;
   }
+
+  footer {
+    padding: 40px 20px;
+    color: #fff !important;
+    background-color: #000000;
+  }
+
+  footer > div {
+    max-width: 600px;
+    margin: auto;
+  }
+
+footer p, footer label {
+    color: #ffffff;
+  }

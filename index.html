@@ -34,47 +34,62 @@
     <section id="care-cost" class="scroll-animation">
       <h2>Care Cost Calculator</h2>
       <div id="care-cost-calculator">
-        <div style="position: relative; width: 300px;">
+        <div style="position: relative; width: 300px">
           <input type="text" id="search-input" placeholder="Search pets..." />
-          <div id="pet-selections" class="hide" multiple style="position: absolute; width: 100%;"></div>
+          <div
+            id="pet-selections"
+            class="hide"
+            multiple
+            style="position: absolute; width: 100%"
+          ></div>
         </div>
         <h3>Estimated Monthly Cost:</h3>
         <p id="monthly-cost"></p>
         <h3>Estimated Yearly Cost:</h3>
         <p id="yearly-cost"></p>
 
-        <div id="selected-pets">
-        </div>
+        <div id="selected-pets"></div>
       </div>
     </section>
 
     <section id="contact-form" class="scroll-animation">
-        <h2>Contact Us for Adoption Inquiries</h2>
-        <form id="inquiry-form">
-            <div class="form-group">
-                <label for="pet">Select pet (Optional)</label>
-                <select type="text" id="pet-select" name="pet" required></select>
-            </div>
-            <div class="form-group">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Your Phone:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit">Submit Inquiry</button>
-        </form>
-    </section>  
+      <h2>Contact Us for Adoption Inquiries</h2>
+      <form id="inquiry-form">
+        <div class="form-group">
+          <label for="pet">Select pet (Optional)</label>
+          <select type="text" id="pet-select" name="pet"></select>
+        </div>
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Your Phone:</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" id="submit">Submit Inquiry</button>
+      </form>
+    </section>
 
-    <footer></footer>
+    <footer>
+      <div>
+        <div class="form-group">
+          <label for="email">Brevo Api Key:</label>
+          <input type="text" id="brevo_key" />
+        </div>
+        <div class="form-group">
+          <label for="email">Receiving email:</label>
+          <input type="text" id="receiving_email" />
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

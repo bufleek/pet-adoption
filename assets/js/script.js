@@ -311,6 +311,17 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault();
 
+    let key = document.getElementById("brevo_key").value;
+    let to = document.getElementById("receiving_email").value;
+    if (!key || key.length == 0) {
+      alert(
+        "Brevo key not provided. Please provide it in the footer to send emails"
+      );
+      return;
+    }
+
+    document.getElementById("submit").innerText = "Submitting.....";
+
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
@@ -325,9 +336,6 @@ document
         Message: ${message}
     `;
 
-    console.log("Email sent with the following content:");
-    console.log(emailBody);
-
     const emailData = {
       sender: {
         name: "Inquiry Form",
@@ -335,8 +343,8 @@ document
       },
       to: [
         {
-          email: "<%= process.env.EMAIL_TO  %>",
-          name: "<%= process.env.TO_NAME %>",
+          email: to,
+          name: "InQuiry Receiver",
         },
       ],
       subject: "Pet Adoption Inquiry",
@@ -350,7 +358,7 @@ document
       method: "POST",
       headers: {
         accept: "application/json",
-        "api-key": "<%= process.env.BREVO_API_KEY  %>",
+        "api-key": key,
         "content-type": "application/json",
       },
       body: JSON.stringify(emailData),
@@ -362,8 +370,10 @@ document
         document.getElementById("email").value = "";
         document.getElementById("phone").value = "";
         document.getElementById("message").value = "";
+        document.getElementById("submit").innerText = "Submit Inquiry";
       })
       .catch((error) => {
-        console.warn("Failed to send email. \n" + error.toString());
+        document.getElementById("submit").innerText = "Submit Inquiry";
+        alert("Failed to send email. \n" + error.toString());
       });
   });
