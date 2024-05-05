@@ -160,6 +160,19 @@ const pets = [
   },
 ];
 
+const petSelect = document.getElementById("pet-select");
+const option = document.createElement("option");
+option.textContent = "";
+option.value = "";
+petSelect.appendChild(option);
+
+pets.forEach((pet) => {
+  const option = document.createElement("option");
+  option.textContent = pet.name;
+  option.value = pet.name;
+  petSelect.appendChild(option);
+});
+
 const petsContainer = document.getElementById("pets");
 pets.forEach((pet) => {
   const petCard = document.createElement("div");
@@ -192,6 +205,11 @@ pets.forEach((pet) => {
   petCard.appendChild(petImage);
   petCard.appendChild(petInfo);
 
+  petCard.addEventListener("click", () => {
+    const currentURL = window.location.href;
+    window.location.href =
+      currentURL.replaceAll("#contact-form", "") + "#contact-form";
+  });
   petsContainer.appendChild(petCard);
 });
 
