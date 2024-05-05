@@ -209,6 +209,8 @@ pets.forEach((pet) => {
     const currentURL = window.location.href;
     window.location.href =
       currentURL.replaceAll("#contact-form", "") + "#contact-form";
+
+    document.getElementById("pet-select").value = pet.name;
   });
   petsContainer.appendChild(petCard);
 });
