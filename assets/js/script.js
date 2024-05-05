@@ -335,8 +335,8 @@ document
       },
       to: [
         {
-          email: process.env.EMAIL_TO,
-          name: process.env.TO_NAME,
+          email: "<%= process.env.EMAIL_TO  %>",
+          name: "<%= process.env.TO_NAME %>",
         },
       ],
       subject: "Pet Adoption Inquiry",
@@ -350,7 +350,7 @@ document
       method: "POST",
       headers: {
         accept: "application/json",
-        "api-key": process.env.BREVO_API_KEY,
+        "api-key": "<%= process.env.BREVO_API_KEY  %>",
         "content-type": "application/json",
       },
       body: JSON.stringify(emailData),
