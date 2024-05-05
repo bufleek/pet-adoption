@@ -71,7 +71,7 @@ p.caption {
     color: #333;
 }
 
-.action-buttons button {
+.action-buttons a {
     padding: 16px 30px;
     font-size: 1.6rem;
     margin-right: 10px;
@@ -81,6 +81,7 @@ p.caption {
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .action-buttons button:hover {
@@ -157,4 +158,120 @@ footer {
 }
 .pet-info p {
     margin: 5px 0;
+}
+
+#care-cost {
+    background-color: #ef9cb0b5;
+}
+
+#care-cost-calculator {
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#search-input {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+
+#pet-selections {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    max-height: 100px; 
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+
+#result h3 {
+    margin-bottom: 10px;
+}
+
+#result p {
+    font-weight: bold;
+}
+
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#calc-form {
+    background: #ffffff;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+
+#contact-form {
+    color: #000000;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #b91e99;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #a71492;
 }
