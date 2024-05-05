@@ -6,7 +6,7 @@ function checkScroll() {
   const triggerBottom = window.innerHeight * 0.8;
 
   sections.forEach((section) => {
-    const sectionTop = section.getBoundingClientRect().top;
+    const sectionTop = section.getBoundingClientRect().top + 80;
 
     if (sectionTop < triggerBottom) {
       section.classList.add("show");
