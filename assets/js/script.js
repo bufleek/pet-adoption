@@ -207,8 +207,7 @@ pets.forEach((pet) => {
 
   petCard.addEventListener("click", () => {
     const currentURL = window.location.href;
-    window.location.href =
-      currentURL.replaceAll("#contact-form", "") + "#contact-form";
+    window.location.href = currentURL.split("#")[0] + "#contact-form";
 
     document.getElementById("pet-select").value = pet.name;
   });
