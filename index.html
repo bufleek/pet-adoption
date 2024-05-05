@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Center</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <!-- Banner content here -->
+        </div>
+    </header>
+
+    <section id="welcome" class="scroll-animation">
+        <div class="welcome-content">
+            <div class="welcome-text">
+                <h1>Welcome to Pet Haven</h1>
+                <p class="caption">Your ultimate destination for finding your perfect furry companion!</p>
+                <div class="action-buttons">
+                    <button>Adopt Now</button>
+                    <button>Donate</button>
+                </div>
+            </div>
+            <div id="pet-image" class="pet-image">
+                <img src="assets/images/pets.png" alt="Pet Haven Image">
+            </div>
+        </div>
+    </section>
+
+    <section id="available-pets" class="scroll-animation">
+        <h2>Available Pets</h2>
+        <div id="pets" class="pets-container">
+            
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer content here -->
+    </footer>
+</body>
+</html>
+
+<script>
+    const pets = [
+    {
+        "name": "Whiskers",
+        "age": "2 years",
+        "breed": "Labrador Retriever",
+        "gender": "Male",
+        "image": "https://media.istockphoto.com/id/1460537153/photo/a-golden-retriever-running-with-her-ball-in-yard-by-a-tree-5-year-old.webp?s=2048x2048&w=is&k=20&c=PBb3h8Tk17eWnx7MBF75IwId9SxIqrf9Z8l8d_9jJIU="
+    },
+    {
+        "name": "Luna",
+        "age": "3 years",
+        "breed": "Maine Coon",
+        "gender": "Female",
+        "image": "https://images.unsplash.com/photo-1583511655826-05700d52f4d9?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "name": "Buddy",
+        "age": "4 years",
+        "breed": "Golden Retriever",
+        "gender": "Male",
+        "image": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "name": "Bella",
+        "age": "2 years",
+        "breed": "French Bulldog",
+        "gender": "Female",
+        "image": "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "name": "Max",
+        "age": "3 years",
+        "breed": "Siberian Husky",
+        "gender": "Male",
+        "image": "https://images.unsplash.com/photo-1548767797-d8c844163c4c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "name": "Peanut",
+        "age": "1 year",
+        "breed": "Shih Tzu",
+        "gender": "Female",
+        "image": "https://media.istockphoto.com/id/1634311257/photo/golden-retriever-happily-running-in-autumn-park.webp?s=2048x2048&w=is&k=20&c=3A2R5oWJZimnoqK6d0ut9D0XXeGHzFIjli-QECbKyVs="
+    },
+    {
+        "name": "Daisy",
+        "age": "2 years",
+        "breed": "Beagle",
+        "gender": "Female",
+        "image": "https://images.unsplash.com/photo-1455103493930-a116f655b6c5?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "name": "Oliver",
+        "age": "2 years",
+        "breed": "Poodle",
+        "gender": "Male",
+        "image": "https://images.unsplash.com/photo-1602580404312-82db1079069d?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "name": "Coco",
+        "age": "2 years",
+        "breed": "Siamese",
+        "gender": "Female",
+        "image": "https://images.unsplash.com/photo-1516470544373-df3edeb89d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D"
+    },
+    {
+        "name": "Rocky",
+        "age": "4 years",
+        "breed": "German Shepherd",
+        "gender": "Male",
+        "image": "https://plus.unsplash.com/premium_photo-1666612335823-31c2d1ee35b9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8"
+    },
+    {
+        "name": "Ruby",
+        "age": "2 years",
+        "breed": "Dachshund",
+        "gender": "Female",
+        "image": "https://images.unsplash.com/photo-1551887373-3c5bd224f6e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8"
+    },
+    {
+        "name": "Gizmo",
+        "age": "3 years",
+        "breed": "Pomeranian",
+        "gender": "Male",
+        "image": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8"
+    }
+]
+
+const petsContainer = document.getElementById('pets');
+pets.forEach(pet => {
+        const petCard = document.createElement('div');
+        petCard.classList.add('pet-card');
+
+        const petImage = document.createElement('img');
+        petImage.src = pet.image;
+        petImage.alt = "Pet Image";
+
+        const petInfo = document.createElement('div');
+        petInfo.classList.add('pet-info');
+
+        const name = document.createElement('p');
+        name.innerHTML = `<strong>Name:</strong> ${pet.name}`;
+
+        const age = document.createElement('p');
+        age.innerHTML = `<strong>Age:</strong> ${pet.age}`;
+
+        const breed = document.createElement('p');
+        breed.innerHTML = `<strong>Breed:</strong> ${pet.breed}`;
+
+        const gender = document.createElement('p');
+        gender.innerHTML = `<strong>Gender:</strong> ${pet.gender}`;
+
+        petInfo.appendChild(name);
+        petInfo.appendChild(age);
+        petInfo.appendChild(breed);
+        petInfo.appendChild(gender);
+
+        petCard.appendChild(petImage);
+        petCard.appendChild(petInfo);
+
+        petsContainer.appendChild(petCard);
+    });
+
+
+</script>
